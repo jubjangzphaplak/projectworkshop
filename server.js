@@ -111,6 +111,7 @@ res.redirect('/products');
 
 
 
-
-console.log('App is runnins at http://localhost:8080');
-app.listen(8080);
+var port = process.env.PORT || 8080;      //ดึงที่ heroku set ไว้
+app.listen(port, function() {
+    console.log('App is running on http://localhost:' + port);
+});
