@@ -67,43 +67,6 @@ app.get('/products/:pid', function(req,res){
     
 });
 
- 
- 
-
-
-
-
-//display users
-app.get('/users', function(req,res){
-    db.any('select * from users',)
-        .then(function(data){
-            console.log('DATA:'+data);
-            res.render('pages/users',{users : data});
-        })
-        .catch(function(error){
-            console.log('ERROR:'+error);
-        })
-});
-
-
-//Routing display users
-app.get('/users/:id', function(req, res) {
-    var id = req.params.id;
-    var sql = 'select * from users';
-    if(id){
-        sql += ' where id = '+ id; 
-    }
-    db.any(sql)
-        .then(function(data){
-            console.log('DATA:'+data);
-            res.render('pages/users',{users : data});
-        })
-        .catch(function(error){
-            console.log('ERROR:'+error);
-        })
-});
-
-
 //add new product
 app.get('/addnewproduct',function(req, res) {
     res.render('pages/addnew');
@@ -128,11 +91,6 @@ app.post('/product/addnewproduct', function(req,res){
     })
     
 })
-
-
-
-
-
 
 // update product
 app.post('/product/update', function(req,res){
@@ -178,14 +136,36 @@ app.get('/product_delete/:id', function(req,res){
 })
 
 
+///// User /////
+//display users
+app.get('/users', function(req,res){
+    db.any('select * from users',)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.render('pages/users',{users : data});
+        })
+        .catch(function(error){
+            console.log('ERROR:'+error);
+        })
+});
 
 
-
-
-
-
-
-
+//Routing display users
+app.get('/users/:id', function(req, res) {
+    var id = req.params.id;
+    var sql = 'select * from users';
+    if(id){
+        sql += ' where id = '+ id; 
+    }
+    db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.render('pages/users',{users : data});
+        })
+        .catch(function(error){
+            console.log('ERROR:'+error);
+        })
+});
 
 //add user
 app.get('/addnewuser',function(req, res) {
