@@ -138,7 +138,7 @@ app.get('/product_delete/:id', function(req,res){
 
 ///// User /////
 //users
-app.get('/users', function(req,res){
+app.post('/users', function(req,res){
     var id = req.param('id');
     var sql = 'select * from users';
     if(id){
@@ -156,7 +156,7 @@ app.get('/users', function(req,res){
 });
 
 //display users
-app.get('/users/:pid', function(req,res){
+app.post('/users/:pid', function(req,res){
     var pid = req.params.pid;
     var sql = "select * from users where id =" + pid;
     db.any(sql)
@@ -171,30 +171,7 @@ app.get('/users/:pid', function(req,res){
     
 });
 
-//add new product
-app.get('/addnewuser',function(req, res) {
-    res.render('pages/adduser');
-});
 
-app.post('/user/addnewuser', function(req,res){
-    var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var sql = `INSERT INTO products (id, email, password)
-    VALUES ('${id}', '${email}', '${password}')`;
-    //db.none 
-    console.log('UPDATE:' + sql);
-    db.query(sql)
-    .then(function (data) {
-        console.log('DATA:' + data);
-        res.redirect('/users')
-
-    })
-    .catch(function (error) {
-        console.log('ERROR:' + error);
-    })
-    
-})
 
 
 
