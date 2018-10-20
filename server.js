@@ -139,8 +139,10 @@ app.post('/products/update', function(req,res){
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `INSERT INTO products (id, title, price)
-    VALUES ('${id}', '${title}', '${price}')`;
+    var sql = `update products 
+    set title =  '${title}' , price = '${price}'
+    where id = '${id}'`;
+
     //db.none 
     console.log('UPDATE:' + sql);
     db.query(sql)
