@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+<form action ="/products/addnewproduct" method = "post"> 
+<div class ="text"><br><h1>Add New Product</h1></br> </div>
+<div class="form-group">
+  <label for="">ID</label>
+  <input type="number"
+    class="form-control" value="" name="id" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Help Text</small>
+</div>
+
+<div class="form-group">
+  <label for="">Title</label>
+  <input type="text"
+    class="form-control" value="" name="title" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Help Text</small>
+</div>
+ <div class="form-group">
+   <label for="">Price</label>
+   <input type="number"
+     class="form-control" value="" name="price" id="" aria-describedby="helpId" placeholder="">
+   <small id="helpId" class="form-text text-muted">Help Text</small>
+ </div>
+
+ 
+ <div class="form-group">
+<a name="" id="" class="btn btn-secondary" href="/products" role="button">Cancle</a>
+<input type="submit"class="btn btn-primary"value ="Add New">
+
+ </div>
+
+
+
+</form>
+<% include ../partials/footer %>

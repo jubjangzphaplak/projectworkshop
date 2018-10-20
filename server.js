@@ -6,6 +6,7 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 // app.get('/', function (request, response) {
 //     response.send('<h1>Hello, Express.js<h1>');
 // });
@@ -17,7 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static('static'));
 
 
-
 app.set('view engine','ejs');
 app.get('/', function(req,res){
     res.render('pages/index');
@@ -26,11 +26,14 @@ app.get('/index', function(req,res){
     res.render('pages/index');
 });
 app.get('/about', function(req,res){
-    var name = 'Chootigarn Tanapibalwongsa';
+    var name = 'Phaplak Saethapan';
     var hobbies =['Music','Movie','Programing'];
-    var dob = '09/08/1997';
+    var dob = '09/06/1997';
     res.render('pages/about',{fullname : name, hobbies : hobbies, dob : dob});   
 });
+
+
+//products
 app.get('/products', function(req,res){
     var id = req.param('id');
     var sql = 'select * from products';
@@ -63,6 +66,13 @@ app.get('/products/:pid', function(req,res){
    
     
 });
+
+ 
+ 
+
+
+
+
 //display users
 app.get('/users', function(req,res){
     db.any('select * from users',)
@@ -74,6 +84,8 @@ app.get('/users', function(req,res){
             console.log('ERROR:'+error);
         })
 });
+
+
 //Routing display users
 app.get('/users/:id', function(req, res) {
     var id = req.params.id;
@@ -91,28 +103,62 @@ app.get('/users/:id', function(req, res) {
         })
 });
 
-//Update data
-app.post('/products/update',function(req,res){
 
-var id = req.body.id;
-var title = req.body.title;
-var price = req.body.price;
-var sql = 'update product set title ="'+ title +
-'",price="'+ price + '" where id =' + id;
-//db.none
+//add new product
+app.get('/addnewproduct',function(req, res) {
+    res.render('pages/addnew');
+});
 
-console.log('UPDATE:' + sql);
-res.redirect('/products');
+app.post('/addnewproduct', function(req,res){
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `INSERT INTO products (id, title, price)
+    VALUES ('${id}', '${title}', '${price}')`;
+    //db.none 
+    console.log('UPDATE:' + sql);
+    db.query(sql)
+    .then(function (data) {
+        console.log('DATA:' + data);
+        res.redirect('/products')
+
+    })
+    .catch(function (error) {
+        console.log('ERROR:' + error);
+    })
+    
+})
 
 
-}); 
 
 
 
 
 
 
-var port = process.env.PORT || 8080;      //ดึงที่ heroku set ไว้
+
+
+//add user
+
+app.get('/addnewuser',function(req, res) {
+    res.render('pages/adduser');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
-    console.log('App is running on http://localhost:' + port);
+console.log('App is running on http://localhost:' + port);
 });
