@@ -105,9 +105,7 @@ app.get('/users/:id', function(req, res) {
 
 
 //add new product
-app.get('/addnewproduct',function(req, res) {
-    res.render('pages/addnew');
-});
+
 
 app.post('product/addnewproduct', function(req,res){
     var id = req.body.id;
