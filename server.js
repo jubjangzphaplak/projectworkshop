@@ -105,7 +105,7 @@ app.get('/users/:id', function(req, res) {
 
 
 //add new product
-app.get('product/addnewproduct',function(req, res) {
+app.get('/addnewproduct',function(req, res) {
     res.render('pages/addnew');
 });
 
