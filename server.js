@@ -141,7 +141,7 @@ app.post('/products/update', function(req,res){
 
     //db.none 
     console.log('UPDATE:' + sql);
-    db.query(sql)
+    db.any(sql)
     .then(function (data) {
         console.log('DATA:' + data);
         res.redirect('/products')
