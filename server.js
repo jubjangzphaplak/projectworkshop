@@ -131,7 +131,7 @@ app.post('/addnewproduct', function(req,res){
 
 
 //add update product
-app.get('/products/update',function(req, res) {
+app.post('/products/update',function(req, res) {
     res.render('pages/update');
 });
 
