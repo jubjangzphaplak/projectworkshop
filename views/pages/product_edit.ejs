@@ -1,4 +1,14 @@
 <% include ../partials/header %>
+
+<script language="javascript">
+function AlertDelete (){
+
+alert('Do you want to delete product');
+
+}
+</script>
+
+
 <form action ="/products/update" method = "post">
 <div class="form-group">
   <label for="">ID</label>
@@ -20,9 +30,28 @@
    <small id="helpId" class="form-text text-muted">Product price</small>
  </div>
 
+<div class="form-group">
+  <label for="">Price</label>
+  <input type="number"
+    class="form-control" value="<%= product.price %>" name="price" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Product Price</small>
+</div>
+<div class="form-group">
+<label for="">Creat At</label>
+<input type="datetime"
+ class=""  name="datetime" id="" aria-describedby="helpId" placeholder="">
+<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime"
+<script type="text/javascript"> 
+</script>    
+<small id="helpId" class="form-text text-muted">Creat At</small>
+
+</div>
+
  
+
+
  <div class="form-group">
-<input type="submit" class="btn btn-info" value="Submit">
+ <a name="" id="" class="btn btn-secondary" href="/products" role="button">Cancel</a>   <input type="submit" class="btn btn-primary" value="Save">   <a name="" id="" OnClick="JavaScript:AlertDelete();" class="btn btn-danger" href="" role="button">Delete</a>
 
  </div>
 
