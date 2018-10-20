@@ -1,31 +1,34 @@
 <% include ../partials/header %>
-
-<form action ="/addnewuser" method = "post">
-
-<h1 class="display-4">Add New User</h1>
+<form action ="/user/addnewuser" method = "post"> 
+<div class ="text"><br><h1>Add New User</h1></br> </div>
 <div class="form-group">
   <label for="">ID</label>
   <input type="number"
-    class="form-control" name="id" id="" aria-describedby="helpId" placeholder="ID">
-  <small id="helpId" class="form-text text-muted"></small>
-</div>
-<div class="form-group">
-  <label for="">Email</label>
-  <input type="email"
-    class="form-control" name="email" id="" aria-describedby="helpId" placeholder="Email">
-  <small id="helpId" class="form-text text-muted"></small>
-</div>
-<div class="form-group">
-  <label for="">Password</label>
-  <input type="password"
-    class="form-control" name="password" id="" aria-describedby="helpId" placeholder="Password">
-  <small id="helpId" class="form-text text-muted"></small>
+    class="form-control" value="" name="id" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Help Text</small>
 </div>
 
-<a name="" id="" class="btn btn-secondary" href="/users" role="button">Cancel</a>
-<button type="submit" class="btn btn-primary">Add New/button>
-
+<div class="form-group">
+  <label for="">E-mail</label>
+  <input type="text"
+    class="form-control" value="" name="title" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">Help Text</small>
 </div>
+ <div class="form-group">
+   <label for="">Password</label>
+   <input type="password"
+     class="form-control" value="" name="price" id="" aria-describedby="helpId" placeholder="">
+   <small id="helpId" class="form-text text-muted">Help Text</small>
+ </div>
+
+ 
+ <div class="form-group">
+<a name="" id="" class="btn btn-secondary" href="/users" role="button">Cancle</a>
+<input type="submit"class="btn btn-primary"value ="Add User">
+
+ </div>
+
+
+
 </form>
-
 <% include ../partials/footer %>

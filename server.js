@@ -137,27 +137,14 @@ app.get('/product_delete/:id', function(req,res){
 
 
 ///// User /////
-//display users
+//users
 app.get('/users', function(req,res){
-    db.any('select * from users',)
-        .then(function(data){
-            console.log('DATA:'+data);
-            res.render('pages/users',{users : data});
-        })
-        .catch(function(error){
-            console.log('ERROR:'+error);
-        })
-});
-
-
-//Routing display users
-app.get('/users/:id', function(req, res) {
-    var id = req.params.id;
+    var id = req.param('id');
     var sql = 'select * from users';
     if(id){
         sql += ' where id = '+ id; 
     }
-    db.any(sql)
+        db.any(sql)
         .then(function(data){
             console.log('DATA:'+data);
             res.render('pages/users',{users : data});
@@ -165,19 +152,49 @@ app.get('/users/:id', function(req, res) {
         .catch(function(error){
             console.log('ERROR:'+error);
         })
+    
 });
 
-//add user
+//display users
+app.get('/users/:pid', function(req,res){
+    var pid = req.params.pid;
+    var sql = "select * from users where id =" + pid;
+    db.any(sql)
+    .then(function(data){
+        //console.log('DATA:'+data);
+        res.render('pages/user_edit',{product : data[0]});
+    })
+    .catch(function(error){
+        console.log('ERROR:'+error);
+    })
+   
+    
+});
+
+//add new product
 app.get('/addnewuser',function(req, res) {
     res.render('pages/adduser');
 });
 
+app.post('/user/addnewuser', function(req,res){
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `INSERT INTO products (id, email, password)
+    VALUES ('${id}', '${email}', '${password}')`;
+    //db.none 
+    console.log('UPDATE:' + sql);
+    db.query(sql)
+    .then(function (data) {
+        console.log('DATA:' + data);
+        res.redirect('/users')
 
-
-
-
-
-
+    })
+    .catch(function (error) {
+        console.log('ERROR:' + error);
+    })
+    
+})
 
 
 

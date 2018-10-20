@@ -1,31 +1,43 @@
 <% include ../partials/header %>
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>E-mail</th>
-            <th>Password</th>
-        </tr>
-    </thead>
-    <tbody>
-     <% users.forEach(function(user) { %>
-        
-        
-        <tr>
-            <td scope="row"><%=user.id%></td>
-            <td><%=user.email%></td>
-            <td><%=user.password%></td>
-        </tr>
-      <%});%>
-           
-        
-    </tbody>
-</table>
+    <script language="javascript">
+        function AlertDelete() {
 
+            alert('Do you want to delete user !! ');
 
-
-
-
-
-
-<% include ../partials/footer %>
+        }
+    </script>
+    <br>
+    <h1>
+        <center>Product</h1>
+    </center>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>E-mail</th>
+                <th>Password</th>
+                <th><a class="btn btn-primary" href="/addnewuser/" role="button">Add User</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(product) 
+            { %>
+               
+               
+               <tr>
+                   <td scope="row"><%=user.id%></td>
+                   <td><%=user.email%></td>
+                   <td><%=user.password%></td>
+                   <td><a class="btn btn-warning" href="/users/<%=user.id%>" role="button">Edit</a></td>
+                   <td><a name="" id="" OnClick="JavaScript:AlertDelete();" class="btn btn-danger" href="/user_delete/<%=user.id%>" role="button">Delete</a></td>
+                  
+                   
+               </tr>
+             <%});%>
+                  
+               
+           </tbody>
+       </table>
+       
+       
