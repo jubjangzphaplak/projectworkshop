@@ -130,11 +130,7 @@ app.post('product/addnewproduct', function(req,res){
 })
 
 
-//add update product
-app.post('/products/update',function(req, res) {
-    res.render('pages/update');
-});
-
+// update product
 app.post('/products/update', function(req,res){
     var id = req.body.id;
     var title = req.body.title;
