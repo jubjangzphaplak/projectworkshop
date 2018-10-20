@@ -196,7 +196,8 @@ app.post('/user/addnewuser', function(req,res){
     
 })
 
-// update user
+// edit . update  user
+
 app.post('/user/update', function(req,res){
     var id = req.body.id;
     var email = req.body.email;
