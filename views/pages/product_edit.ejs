@@ -1,12 +1,6 @@
 <% include ../partials/header %>
 
-  <script language="javascript">
-    function AlertDelete() {
-
-      alert('Do you want to delete product');
-
-    }
-  </script>
+  
 
 
   <form action="/product/update" method="post">
@@ -35,7 +29,7 @@
     <div class="form-group">
       <a name="" id="" class="btn btn-secondary" href="/products" role="button">Cancel</a>
       <input type="submit" class="btn btn-primary" value="Save">
-      <a name="" id="" OnClick="JavaScript:AlertDelete();" class="btn btn-danger" href="/product/delete/<%=product.id%>" role="button">Delete</a>
+    
 
     </div>
 
