@@ -138,7 +138,7 @@ app.get('/product_delete/:id', function(req,res){
 
 ///// User /////
 //users
-app.post('/users', function(req,res){
+app.get('/users', function(req,res){
     var id = req.param('id');
     var sql = 'select * from users';
     if(id){
@@ -156,7 +156,7 @@ app.post('/users', function(req,res){
 });
 
 //display users
-app.post('/users/:pid', function(req,res){
+app.get('/users/:pid', function(req,res){
     var pid = req.params.pid;
     var sql = "select * from users where id =" + pid;
     db.any(sql)
