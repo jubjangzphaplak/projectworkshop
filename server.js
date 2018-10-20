@@ -178,8 +178,8 @@ app.get('/addnewuser',function(req, res) {
 
 app.post('/user/addnewuser', function(req,res){
     var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
+    var email = req.body.email;
+    var password = req.body.password;
     var sql = `INSERT INTO users (id, email, password)
     VALUES ('${id}', '${email}', '${password}')`;
     //db.none 
@@ -199,8 +199,8 @@ app.post('/user/addnewuser', function(req,res){
 // update user
 app.post('/user/update', function(req,res){
     var id = req.body.id;
-    var title = req.body.email;
-    var price = req.body.password;
+    var email = req.body.email;
+    var password = req.body.password;
     var sql = `update users 
     set email =  '${email}' , password = '${password}'
     where id = '${id}'`;
