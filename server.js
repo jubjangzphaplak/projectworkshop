@@ -327,6 +327,7 @@ app.get('/purchases_delete/:id', function(req,res){
 
 
 //purchases item
+
 app.get('/purchases_item', function(req,res){
     var id = req.param('id');
     var sql = 'select * from purchase_items';
@@ -344,6 +345,11 @@ app.get('/purchases_item', function(req,res){
     
 });
 
+
+
+
+
+
 //display purchases item
 app.get('/purchases_item/:pid', function(req,res){
     var pid = req.params.pid;
@@ -360,6 +366,10 @@ app.get('/purchases_item/:pid', function(req,res){
     
 });
 
+
+
+
+///creat at
 
 app.get('/create_at', function (request, response) {
 var time = moment().format('mm/dd/yyyy');
