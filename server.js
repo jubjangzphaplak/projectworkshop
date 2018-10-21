@@ -312,6 +312,10 @@ app.get('/purchases_item/:pid', function(req,res){
 });
 
 
+app.get('/create_at', function (request, response) {
+var time = moment().format('mm/dd/yyyy');
+ response.render('pages/update', { time: time });
+ });
 
 
 
