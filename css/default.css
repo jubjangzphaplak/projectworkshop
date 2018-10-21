@@ -7,3 +7,7 @@ body{
 
     font-size: 22pt;
 }
+.jumbotron{
+    color: rgb(86, 87, 86);
+    /*background-color:none !important;*/
+    }
