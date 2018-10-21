@@ -276,11 +276,11 @@ app.get('/purchases/:pid', function(req,res){
 });
 
 //add new purchases
-app.get('/addpurchase',function(req, res) {
-    res.render('pages/addpurchase');
+app.get('/addpurchases',function(req, res) {
+    res.render('pages/addpurchases');
 });
 
-app.post('/purchase/addpurchase', function(req,res){
+app.post('/purchase/addpurchases', function(req,res){
     var name = req.body.name;
     var address = req.body.address;
     var state = req.body.state;
