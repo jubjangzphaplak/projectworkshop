@@ -241,8 +241,7 @@ app.get('/user_delete/:id', function(req,res){
     
 })
 
-
-//purchases show
+//
 app.get('/purchases', function(req,res){
     var id = req.param('id');
     var sql = 'select * from purchases';
@@ -252,7 +251,7 @@ app.get('/purchases', function(req,res){
         db.any(sql)
         .then(function(data){
             console.log('DATA:'+data);
-            res.render('pages/purchases',{purchase : data});
+            res.render('pages/purchases',{purchases : data});
         })
         .catch(function(error){
             console.log('ERROR:'+error);
@@ -260,14 +259,14 @@ app.get('/purchases', function(req,res){
     
 });
 
-//display products
+//display 
 app.get('/purchases/:pid', function(req,res){
     var pid = req.params.pid;
     var sql = "select * from purchases where id =" + pid;
     db.any(sql)
     .then(function(data){
         //console.log('DATA:'+data);
-        res.render('pages/purchases_edit',{purchase : data[0]});
+        res.render('pages/user_edit',{purchase : data[0]});
     })
     .catch(function(error){
         console.log('ERROR:'+error);
@@ -275,6 +274,7 @@ app.get('/purchases/:pid', function(req,res){
    
     
 });
+
 
 
 
