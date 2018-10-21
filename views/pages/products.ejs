@@ -12,7 +12,7 @@
 <h1><center>Product</h1></center><br>
 <div class="jumbotron">
 <table class="table">
-    <tbody id="myTable">
+    <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
@@ -21,7 +21,8 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+   
+            <tbody id="myTable">
      <% products.forEach(function(product) 
      { %>
         
@@ -41,10 +42,7 @@
     </tbody></div>
 </table>
 
-
-
-
-    </body> <script>
+<script>
         $(document).ready(function(){
           $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
@@ -54,8 +52,11 @@
           });
         });
         </script>
+
+
+    </body>
     </html>
-   
+    
         
 
 
