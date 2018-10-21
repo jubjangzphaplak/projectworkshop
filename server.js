@@ -177,11 +177,10 @@ app.get('/addnewuser',function(req, res) {
 });
 
 app.post('/user/addnewuser', function(req,res){
-    var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
-    var sql = `INSERT INTO users (id, email, password)
-    VALUES ('${id}', '${email}', '${password}')`;
+    var sql = `INSERT INTO users (email, password)
+    VALUES ('${email}', '${password}')`;
     //db.none 
     console.log('UPDATE:' + sql);
     db.query(sql)
