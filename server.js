@@ -198,7 +198,7 @@ app.post('/user/addnewuser', function(req,res){
 
 // edit . update  user
 
-app.post('/user/edit', function(req,res){
+app.post('/user/update', function(req,res){
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
