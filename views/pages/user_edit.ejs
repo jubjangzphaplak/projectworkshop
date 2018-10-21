@@ -1,11 +1,5 @@
 <% include ../partials/header %>
-<script language="javascript">
-    function AlertDelete() {
 
-      alert('Do you want to delete user');
-
-    }
-  </script>
 
   
 
@@ -41,7 +35,7 @@
     <div class="form-group">
       <a name="" id="" class="btn btn-secondary" href="/users" role="button">Cancel</a>
       <input type="submit" class="btn btn-primary" value="Save">
-    
+      <a class="btn btn-danger" onclick="confirm('Do you want to delete product !!');" href="/product_delete/<%= product.id %>" role="button">Delete</a>
 
     </div>
 
