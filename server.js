@@ -242,6 +242,39 @@ app.get('/user_delete/:id', function(req,res){
 })
 
 
+//purchases show
+app.get('/purchases', function(req,res){
+    var id = req.param('id');
+    var sql = 'select * from purchases';
+    if(id){
+        sql += ' where id = '+ id; 
+    }
+        db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.render('pages/purchases',{purchase : data});
+        })
+        .catch(function(error){
+            console.log('ERROR:'+error);
+        })
+    
+});
+
+//display products
+app.get('/purchases/:pid', function(req,res){
+    var pid = req.params.pid;
+    var sql = "select * from purchases where id =" + pid;
+    db.any(sql)
+    .then(function(data){
+        //console.log('DATA:'+data);
+        res.render('pages/purchases_edit',{purchase : data[0]});
+    })
+    .catch(function(error){
+        console.log('ERROR:'+error);
+    })
+   
+    
+});
 
 
 

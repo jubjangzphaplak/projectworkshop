@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+<script language="javascript">
+    function AlertDelete() {
+
+      alert('Do you want to delete product');
+
+    }
+  </script>
+<br>
+<h1><center>Purchases</h1></center><br>
+<div class="jumbotron">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>State</th>
+            <th>ZipCode</th>
+            <th>UserID</th>
+            <th><a class="btn btn-primary" href="" role="button">Add New</a></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+     <% purchases.forEach(function(purchase) 
+     { %>
+        
+        
+        <tr>
+            <td scope="row"><%=purchase.id%></td>
+            <td><%=purchase.name%></td>
+            <td><%=purchase.address%></td>
+            <td><%=purchase.state%></td>
+            <td><%=purchase.zipcode%></td>
+            <td><%=purchase.user_id%></td>
+            <td><a class="btn btn-warning" href="/purchases/<%=purchase.id%>" role="button">Edit</a></td>
+            <td><a name="" id="" OnClick="JavaScript:AlertDelete();" class="btn btn-danger" href="" role="button">Delete</a></td>
+           
+            
+        </tr>
+      <%});%>
+           
+        
+    </tbody></div>
+</table>
+
+
+
+
+
+
+
+<% include ../partials/footer %>
