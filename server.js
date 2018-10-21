@@ -332,7 +332,7 @@ app.get('/purchases_item', function(req,res){
     var id = req.param('id');
     var sql = 'select * from purchase_items';
     if(id){
-        sql += ' where id = '+ id; 
+        sql += ' where purchase_id = '+ id; 
     }
         db.any(sql)
         .then(function(data){
