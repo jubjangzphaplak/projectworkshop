@@ -280,7 +280,7 @@ app.get('/purchases/:pid', function(req,res){
 //purchases item
 app.get('/purchases_item', function(req,res){
     var id = req.param('id');
-    var sql = 'select * from purchasesitem';
+    var sql = 'select * from purchase_items';
     if(id){
         sql += ' where id = '+ id; 
     }
@@ -298,7 +298,7 @@ app.get('/purchases_item', function(req,res){
 //display purchases item
 app.get('/purchases_item/:pid', function(req,res){
     var pid = req.params.pid;
-    var sql = "select * from purchasesitem where id =" + pid;
+    var sql = "select * from purchase_items where id =" + pid;
     db.any(sql)
     .then(function(data){
         //console.log('DATA:'+data);
