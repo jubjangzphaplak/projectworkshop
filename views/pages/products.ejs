@@ -5,6 +5,18 @@
       alert('Do you want to delete product');
 
     }
+
+
+   $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+
+  
   </script>
 <br>
 <h1><center>Product</h1></center><br>
@@ -41,17 +53,7 @@
 
 
 
-<script>
-    $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-      });
-    });
-    </script>
-    
+
     </body>
     </html>
 
