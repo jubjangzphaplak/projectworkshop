@@ -275,8 +275,7 @@ app.get('/purchases/:pid', function(req,res){
     
 });
 
-
-//add new purchase
+//add new purchases
 app.get('/addpurchase',function(req, res) {
     res.render('pages/addpurchase');
 });
@@ -287,8 +286,8 @@ app.post('/purchase/addpurchase', function(req,res){
     var state = req.body.state;
     var zipcode = req.body.zipcode;
     var user_id = req.body.user_id;
-    var sql = `INSERT INTO purchases (name, address, state,zipcode,user_id)
-    VALUES ('${name}', '${address}', '${state}','${zipcode}','${user_id}')`;
+    var sql = `INSERT INTO pyrchases (name, address, state,zipcode,user_id)
+    VALUES ('${name}', '${address}', '${state}', '${zipcode}', '${user_id}')`;
     //db.none 
     console.log('UPDATE:' + sql);
     db.query(sql)
@@ -305,6 +304,25 @@ app.post('/purchase/addpurchase', function(req,res){
 
 
 
+
+// delete purchases
+app.get('/purchases_delete/:id', function(req,res){
+    var id = req.params.id;
+    var sql = 'DELETE FROM purcheses';
+    if(id){
+        sql += ' where id ='+ id; 
+    }
+    db.any(sql)
+    .then(function (data) {
+        console.log('DATA:' + data);
+        res.redirect('/purchases')
+
+    })
+    .catch(function (error) {
+        console.log('ERROR:' + error);
+    })
+    
+})
 
 
 
