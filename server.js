@@ -276,6 +276,37 @@ app.get('/purchases/:pid', function(req,res){
 });
 
 
+//add new purchase
+app.get('/addpurchase',function(req, res) {
+    res.render('pages/addpurchase');
+});
+
+app.post('/purchase/addpurchase', function(req,res){
+    var name = req.body.name;
+    var address = req.body.address;
+    var state = req.body.state;
+    var zipcode = req.body.zipcode;
+    var user_id = req.body.user_id;
+    var sql = `INSERT INTO purchases (name, address, state,zipcode,user_id)
+    VALUES ('${name}', '${address}', '${state}','${zipcode}','${user_id}')`;
+    //db.none 
+    console.log('UPDATE:' + sql);
+    db.query(sql)
+    .then(function (data) {
+        console.log('DATA:' + data);
+        res.redirect('/purchases')
+
+    })
+    .catch(function (error) {
+        console.log('ERROR:' + error);
+    })
+    
+})
+
+
+
+
+
 
 //purchases item
 app.get('/purchases_item', function(req,res){
