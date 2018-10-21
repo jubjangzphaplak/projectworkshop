@@ -286,7 +286,7 @@ app.post('/purchase/addpurchase', function(req,res){
     var state = req.body.state;
     var zipcode = req.body.zipcode;
     var user_id = req.body.user_id;
-    var sql = `INSERT INTO pyrchases (name, address, state,zipcode,user_id)
+    var sql = `INSERT INTO purchases (name, address, state,zipcode,user_id)
     VALUES ('${name}', '${address}', '${state}', '${zipcode}', '${user_id}')`;
     //db.none 
     console.log('UPDATE:' + sql);
