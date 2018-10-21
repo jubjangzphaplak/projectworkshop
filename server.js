@@ -241,7 +241,7 @@ app.get('/user_delete/:id', function(req,res){
     
 })
 
-//
+//purchases 
 app.get('/purchases', function(req,res){
     var id = req.param('id');
     var sql = 'select * from purchases';
@@ -259,7 +259,7 @@ app.get('/purchases', function(req,res){
     
 });
 
-//display 
+//display purchases
 app.get('/purchases/:pid', function(req,res){
     var pid = req.params.pid;
     var sql = "select * from purchases where id =" + pid;
@@ -274,6 +274,43 @@ app.get('/purchases/:pid', function(req,res){
    
     
 });
+
+
+
+//purchases item
+app.get('/purchases_item', function(req,res){
+    var id = req.param('id');
+    var sql = 'select * from purchasesitem';
+    if(id){
+        sql += ' where id = '+ id; 
+    }
+        db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.render('pages/purchases_item',{purchases_item : data});
+        })
+        .catch(function(error){
+            console.log('ERROR:'+error);
+        })
+    
+});
+
+//display purchases item
+app.get('/purchases_item/:pid', function(req,res){
+    var pid = req.params.pid;
+    var sql = "select * from purchasesitem where id =" + pid;
+    db.any(sql)
+    .then(function(data){
+        //console.log('DATA:'+data);
+        res.render();
+    })
+    .catch(function(error){
+        console.log('ERROR:'+error);
+    })
+   
+    
+});
+
 
 
 

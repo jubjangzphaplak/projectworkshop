@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+<script language="javascript">
+    function AlertDelete() {
+
+      alert('Do you want to delete item');
+
+    }
+  </script>
+<br>
+<h1><center>Purchases Item</h1></center><br>
+<div class="jumbotron">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Phuechases ID</th>
+            <th>Product ID</th>
+            <th>Price</th>
+            <th>Quanity</th>
+            <th>State</th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+     <% purchases_item.forEach(function(item) 
+     { %>
+        
+        
+        <tr>
+            <td scope="row"><%=item.id%></td>
+            <td><%=item.purchases_id%></td>
+            <td><%=item.product_id%></td>
+            <td><%=item.price%></td>
+            <td><%=item.quanity%></td>
+            <td><%=item.state%></td>
+  
+           
+            
+        </tr>
+      <%});%>
+           
+        
+    </tbody></div>
+</table>
+
+
+
+
+
+
+
+<% include ../partials/footer %>
