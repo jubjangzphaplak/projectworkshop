@@ -298,7 +298,7 @@ app.get('/purchases_item', function(req,res){
 //display purchases item
 app.get('/purchases_item/:pid', function(req,res){
     var pid = req.params.pid;
-    var sql = "select * from purchase_items where id =" + pid;
+    var sql = "select * from purchase_items where purchase_id =" + pid;
     db.any(sql)
     .then(function(data){
         //console.log('DATA:'+data);
