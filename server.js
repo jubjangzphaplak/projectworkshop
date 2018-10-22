@@ -310,7 +310,7 @@ app.get('/purchase_items/:pid', function (req, res) {
 
 });
 
-
+///report product
 app.get('/report_product', function (req, res) {
     var sql = `select a.title,u.name,sum(i.price),u.zipcode 
     from products a,purchases u,purchase_items i 
@@ -326,9 +326,34 @@ app.get('/report_product', function (req, res) {
         })
         .catch(function(error){
             console.log('ERROR:'+error);
-        })
+        })      
     
 });
+
+//report purchases
+app.get('/report_purchases', function (req, res) {
+    
+    var sql = `select name,price,address
+    from purchases INNER JOIN purchase_items ON purchases.id = purchase_items.id
+    order by price DESC
+    limit 10`;
+
+    //db.none 
+    console.log('UPDATE:' + sql);
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.render('pages/report_purchases',{ reports : data });
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
+})
+
+
+
 
 ///creat at
 
