@@ -265,7 +265,7 @@ app.get('/purchases/:pid', function(req,res){
     db.any(sql)
     .then(function(data){
         //console.log('DATA:'+data);
-        res.render('pages/user_edit',{purchase : data[0]});
+        res.render();
     })
     .catch(function(error){
         console.log('ERROR:'+error);
