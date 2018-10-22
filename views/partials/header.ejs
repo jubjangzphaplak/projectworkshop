@@ -45,13 +45,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="about">About</a>
                 <li class="nav-item">
-                    <a class="nav-link" href="users">User</a>
-                    <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="Report" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CRUD</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="nav-link" href="users">User</a>
                         <a class="nav-link" href="products">Product</a>
-                        <li class="nav-item dropdown">
+                        <a class="dropdown-item" href="purchases">Purchases</a>
+                    </div>
                             <a class="nav-link dropdown-toggle" href="Report" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Report</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="purchases">Purchases</a>
                                 <a class="dropdown-item" href="purchase_items">Purchases Item</a>
                             </div>
                         </li>
