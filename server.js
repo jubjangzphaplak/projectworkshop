@@ -321,7 +321,7 @@ app.get('/report_user', function (req, res) {
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('pages/purchase_items', { report: data })
+            res.render('pages/report_user', { report: data })
 
         })
         .catch(function (error) {
