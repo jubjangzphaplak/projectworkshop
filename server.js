@@ -311,7 +311,7 @@ app.get('/purchase_items/:pid', function (req, res) {
 });
 
 
-app.get('/report_user', function (req, res) {
+app.get('/report_product', function (req, res) {
     var sql = `select a.title,u.name,sum(i.price),u.zipcode 
     from products a,purchases u,purchase_items i 
     group by a.title,u.name,u.zipcode 
@@ -322,7 +322,7 @@ app.get('/report_user', function (req, res) {
         db.any(sql)
         .then(function(data){
             console.log('DATA:'+data);
-            res.render('pages/report_user',{reporta : data});
+            res.render('pages/report_product',{reporta : data});
         })
         .catch(function(error){
             console.log('ERROR:'+error);
