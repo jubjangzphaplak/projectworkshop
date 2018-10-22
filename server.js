@@ -325,46 +325,39 @@ app.get('/purchases_delete/:id', function(req,res){
 
 
 
-//purchases item
-
-app.get('/purchases_item', function(req,res){
+/////purchase_items
+app.get('/purchase_items', function (req, res) {
     var id = req.param('id');
     var sql = 'select * from purchase_items';
-    if(id){
-        sql += ' where purchase_id = '+ purchase_id; 
+    if (id) {
+        sql += ' where id = ' + id;
     }
-        db.any(sql)
-        .then(function(data){
-            console.log('DATA:'+data);
-            res.render('pages/purchases_item',{purchases_item : data});
-        })
-        .catch(function(error){
-            console.log('ERROR:'+error);
-        })
-    
-});
-
-
-
-
-
-
-//display purchases item
-app.get('/purchases_item/:pid', function(req,res){
-    var pid = req.params.pid;
-    var sql = "select * from purchase_items where purchase_id =" + purchase_id;
     db.any(sql)
-    .then(function(data){
-        //console.log('DATA:'+data);
-        res.render();
-    })
-    .catch(function(error){
-        console.log('ERROR:'+error);
-    })
-   
-    
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.render('pages/purchase_items', { purchase_items: data });
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
 });
 
+//display purchase_items
+app.get('/purchase_items/:pid', function (req, res) {
+    var pid = req.params.pid;
+    var sql = "select * from purchase_items where id =" + pid;
+    db.any(sql)
+        .then(function (data) {
+            //console.log('DATA:'+data);
+            res.render('pages/', { product: data[0] });
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
+
+});
 
 
 
