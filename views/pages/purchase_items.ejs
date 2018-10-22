@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 
-
+<div class="jumbotron">
 <table class="table">
     <thead>
         <tr>
@@ -14,7 +14,7 @@
             
         </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
     <% purchase_items.forEach(function(purchase_item){ %>
         <tr>
             <td scope="row"><%= purchase_item.purchase_id%></td>
@@ -26,6 +26,15 @@
         </tr>
         <% }); %>
     </tbody>
-</table>
-
+</table></div>
+<script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
 <% include ../partials/footer %>
