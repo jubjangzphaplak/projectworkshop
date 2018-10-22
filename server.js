@@ -312,11 +312,11 @@ app.get('/purchase_items/:pid', function (req, res) {
 
 
 app.get('/report_user', function (req, res) {
-    var sql = `select p.title,pu.name,sum(i.price),pu.zipcode 
-    from products p,purchases pu,purchase_items i 
-    group by p.title,pu.name,pu.zipcode 
+    var sql = `select a.title,u.name,sum(i.price),u.zipcode 
+    from products a,purchases u,purchase_items i 
+    group by a.title,u.name,u.zipcode 
     order by sum(i.price) DESC 
-    limit 50
+    limit 20
    `;
     
         db.any(sql)
