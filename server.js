@@ -197,7 +197,7 @@ app.post('/user/addnewuser', function(req,res){
 
 // edit . update  user
 
-app.post('/user/update', function(req,res){
+app.post('/users/update', function (req, res) {
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
@@ -208,15 +208,15 @@ app.post('/user/update', function(req,res){
     //db.none 
     console.log('UPDATE:' + sql);
     db.any(sql)
-    .then(function (data) {
-        console.log('DATA:' + data);
-        res.redirect('/users')
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/users')
 
-    })
-    .catch(function (error) {
-        console.log('ERROR:' + error);
-    })
-    
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
 })
 
 
