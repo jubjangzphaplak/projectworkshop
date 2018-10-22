@@ -280,10 +280,10 @@ app.get('/purchases/:pid', function(req,res){
 
 ///report product
 app.get('/report_product', function (req, res) {
-    var sql = `select a.title,u.name,sum(i.price),u.zipcode 
+    var sql = `select a.title,u.name,sum(num.price),
     from products a,purchases u,purchase_items i 
-    group by a.title,u.name,u.zipcode 
-    order by sum(i.price) DESC 
+    group by a.title,u.name
+    order by sum(num.price) DESC 
     limit 10
    `;
     
