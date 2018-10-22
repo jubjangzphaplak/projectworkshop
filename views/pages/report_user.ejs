@@ -4,20 +4,20 @@
     <div class="jumbotron"><table class="table">
         <thead>
             <tr>
+                <th>Title</th>
                 <th>Name</th>
-                <th>E-mail</th>
-                <th>Address</th>
                 <th>Total Price</th>
+                <th>ZipCode</th>
             </tr>
         </thead>
         <tbody id="myTable">
             <% reporta.forEach(function(reporta){ %>
        
                <tr>
-                   <td scope="row"><%=reporta.name%></td>
-                   <td><%=reporta.email%></td>
-                   <td><%=reporta.address%></td>
+                   <td scope="row"><%=reporta.title%></td>
+                   <td><%=reporta.name%></td>
                    <td><%=reporta.sum%></td>
+                   <td><%=reporta.zipcode%></td>
                    
                </tr></div>
              <%});%>   
