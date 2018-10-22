@@ -1,27 +1,27 @@
 <% include ../partials/header %>
-    <h1><center>Top 50 User</h1></center><br>
+
+<h1><center>Top 50 User</h1></center><br>
     <div class="jumbotron"><table class="table">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Address</th>
                 <th>E-mail</th>
+                <th>Address</th>
                 <th>Total Price</th>
             </tr>
         </thead>
         <tbody id="myTable">
-         <% report.forEach(function(report) 
-         { %>
-    
-            <tr>
-                <td scope="row"><% =report.name%></td>
-                <td><%=report.address%></td>
-                <td><%=report.email%></td>
-                <td><%=report.sum%></td>
-                
-            </tr></div>
-          <%});%>   
-        </tbody>
+            <% reporta.forEach(function(reporta){ %>
+       
+               <tr>
+                   <td scope="row"><%=reporta.name%></td>
+                   <td><%=reporta.email%></td>
+                   <td><%=reporta.address%></td>
+                   <td><%=reporta.sum%></td>
+                   
+               </tr></div>
+             <%});%>   
+           </tbody>
     </table>
     <script>
         $(document).ready(function(){
@@ -34,16 +34,4 @@
         });
         </script>
         
-
-
-
-
-
-
-
-
-
-
-
-
 <% include ../partials/footer %>

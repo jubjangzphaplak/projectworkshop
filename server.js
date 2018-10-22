@@ -316,19 +316,19 @@ app.get('/report_user', function (req, res) {
     from purchases p,users u,purchase_items pu
     group by p.name,p.address,u.email
     order by sum(pu.price) DESC
-    limit 50`;
-
-    db.any(sql)
-        .then(function (data) {
-            console.log('DATA:' + data);
-            res.render('pages/report_user', { report: data })
-
+    limit 50
+   `;
+    
+        db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.render('pages/report_user',{reporta : data});
         })
-        .catch(function (error) {
-            console.log('ERROR:' + error);
+        .catch(function(error){
+            console.log('ERROR:'+error);
         })
-
-})
+    
+});
 
 ///creat at
 
