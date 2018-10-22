@@ -92,7 +92,7 @@ app.post('/product/addnewproduct', function(req,res){
     
 })
 
-// update product
+// edit or update product
 app.post('/product/update', function(req,res){
     var id = req.body.id;
     var title = req.body.title;
