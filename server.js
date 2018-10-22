@@ -316,7 +316,7 @@ app.get('/report_product', function (req, res) {
     from products a,purchases u,purchase_items i 
     group by a.title,u.name,u.zipcode 
     order by sum(i.price) DESC 
-    limit 20
+    limit 10
    `;
     
         db.any(sql)
