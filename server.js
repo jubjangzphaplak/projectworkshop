@@ -311,7 +311,24 @@ app.get('/purchase_items/:pid', function (req, res) {
 });
 
 
+app.post('/report_user', function (req, res) {
+    var sql = `select p.name,p.address,u.email,sum(pu.price)
+    from purchases p,users u,purchase_items pu
+    group by p.name,p.address,u.email
+    order by sum(pu.price) DESC
+    limit 50`;
 
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('pages/purchase_items', { report: data })
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
+})
 
 ///creat at
 
