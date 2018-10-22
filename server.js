@@ -274,56 +274,6 @@ app.get('/purchases/:pid', function(req,res){
     
 });
 
-//add new purchases
-app.get('/addpurchases',function(req, res) {
-    res.render('pages/addpurchases');
-});
-
-app.post('/purchase/addpurchases', function(req,res){
-    var name = req.body.name;
-    var address = req.body.address;
-    var state = req.body.state;
-    var zipcode = req.body.zipcode;
-    var user_id = req.body.user_id;
-    var sql = `INSERT INTO purchases (name, address, state,zipcode,user_id)
-    VALUES ('${name}', '${address}', '${state}', '${zipcode}', '${user_id}')`;
-    //db.none 
-    console.log('UPDATE:' + sql);
-    db.query(sql)
-    .then(function (data) {
-        console.log('DATA:' + data);
-        res.redirect('/purchases')
-
-    })
-    .catch(function (error) {
-        console.log('ERROR:' + error);
-    })
-    
-})
-
-
-
-
-// delete purchases
-app.get('/purchases_delete/:id', function(req,res){
-    var id = req.params.id;
-    var sql = 'DELETE FROM purcheses';
-    if(id){
-        sql += ' where id ='+ id; 
-    }
-    db.any(sql)
-    .then(function (data) {
-        console.log('DATA:' + data);
-        res.redirect('/purchases')
-
-    })
-    .catch(function (error) {
-        console.log('ERROR:' + error);
-    })
-    
-})
-
-
 
 
 /////purchase_items
